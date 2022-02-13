@@ -11,19 +11,19 @@ export default function LoginPage({ onLogin, user }) {
     return (
         <div className={styles.containerLogin}>
             <div className={styles.imageBox}>
-                <img className={styles.logo} src="./img/logo.svg" alt="logo devs united" />
-                <img className={styles.title} src="./img/title.svg" alt="title devs united" />
+                <img className={styles.logo} src="/img/logo.svg" alt="logo devs united" />
+                <img className={styles.title} src="/img/title.svg" alt="title devs united" />
             </div>
             <div className={styles.loginBox}>
                 <div className={styles.login}>
-                    <img src="./img/lorem.svg" alt="lorem ipsum dolor title" />
+                    <img src="/img/lorem.svg" alt="lorem ipsum dolor title" />
                     <p className={styles.intro}>
                         Lorem ipsum dolor sit amet, consectetur adopiscing elit
                     </p>
                 </div>
                 <div onClick={onLogin} className={styles.buttonBox}>
                     <div className={styles.boxGoogle}></div>
-                    <img src="./img/Google.svg" alt="google logo" />
+                    <img src="/img/Google.svg" alt="google logo" />
                     <button>Sign in with Google</button>
                 </div>
                 <p className={styles.copyright}>

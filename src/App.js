@@ -6,7 +6,7 @@ import ProfileFollowers from "./components/Profile Followers/ProfileFollowers";
 import MyProfile from "./components/MyProfile/MyProfile";
 import WithPadding from "./components/WithPadding/WithPadding";
 import { auth, loginConGoogle } from "./firebase";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -36,6 +36,15 @@ function App() {
                     }
                 />
                 <Route path="/login" element={<LoginPage onLogin={onLogin} user={user} />} />
+                <Route
+                    path="/users/me"
+                    element={
+                        <WithPadding>
+                            <MyProfile user={user} />
+                        </WithPadding>
+                    }
+                />
+                <Route path="/*" element={<Navigate replace to="/" />} />
             </Routes>
         </div>
     );

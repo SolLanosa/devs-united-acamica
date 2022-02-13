@@ -6,6 +6,7 @@
     margin: 20px auto;
     max-width: 1000px;
     height: 42px;
+    width: 100%;
 }
 
 .containerMyProfile {
@@ -16,33 +17,30 @@
     margin-right: 15px;
 }
 
-.backPic {
-    margin-left: 200px;
-}
-
 .logoutBox {
-    background-color:#F50D5A;
+    background-color: #f50d5a;
     width: 116px;
     height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 170px;
 }
 
 .logoutBox img {
-    background-color:#F50D5A;
+    background-color: #f50d5a;
 }
 
 /*PROFILE INFO*/
 .myProfileInfo {
     background-color: #150714;
     height: 270px;
-    border-bottom: 2px solid #914D8B;
+    border-bottom: 2px solid #914d8b;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    margin: 0 -25vw;
+    padding: 0 25vw;
 }
 
 .profilepic {
@@ -58,14 +56,16 @@
     margin-top: 10px;
 }
 
-.myProfileInfo div .user {
+.myProfileInfo .containerUser {
     background-color: yellow;
     padding: 3px 3px;
-    border-radius: 0px 0px 0px 5px;   
+    border-radius: 0px 0px 0px 5px;
     margin-bottom: 20px;
+    margin-top: 15px;
+    font-family: Silkscreen;
 }
 
-.containerUser {
+.myProfileInfoContent {
     background-color: #150714;
 }
 
@@ -73,17 +73,22 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: auto;
+    margin: 0 auto;
     background-color: #150714;
     width: 655px;
     height: 40px;
-    position: relative;
-    top: 7px;
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.333333px;
+    justify-self: flex-end;
 }
 
-.post {
+.selected {
     width: 50%;
-    background-color: #60265B;
+    background-color: #60265b;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -91,11 +96,7 @@
     cursor: pointer;
 }
 
-.post img {
-    background-color: #60265B;
-}
-
-.favs {
+.unselected {
     width: 50%;
     background-color: #150714;
     height: 100%;
@@ -103,8 +104,5 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-}
-
-.favs img {
-    background-color: #150714;
+    color: #60265b;
 }

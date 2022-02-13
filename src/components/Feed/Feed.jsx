@@ -3,24 +3,23 @@ import styles from "./Feed.module.css";
 import Tweet from "../Tweet/Tweet";
 import { firestore, logout } from "../../firebase";
 import { collections } from "../../firebase/firebaseConfig";
-import { Navigate } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 
 export default function Feed({ user }) {
-    const [tweets, setTweets] = useState([]);
-    const [tweet, setTweet] = useState({
+    const EMPTY_TWEET = {
         content: "",
-        autor: "",
-        uid: "",
-        profilePic: "",
-    });
+        author: user?.displayName,
+        uid: user?.uid,
+        profilePic: user?.photoURL,
+        likes: [],
+    };
+    const [tweets, setTweets] = useState([]);
+    const [tweet, setTweet] = useState(EMPTY_TWEET);
 
     const handleTweetChange = (e) => {
         let nuevoTweet = {
+            ...tweet,
             content: e.target.value,
-            likes: 0,
-            uid: user.uid,
-            autor: user.displayName,
-            profilePic: user.photoURL,
         };
         setTweet(nuevoTweet);
     };
@@ -28,16 +27,8 @@ export default function Feed({ user }) {
     const sendTweet = (e) => {
         if (tweet.content.length > 0) {
             firestore.collection(collections.TWEETS).add(tweet);
-            setTweet({
-                content: "",
-            });
+            setTweet(EMPTY_TWEET);
         }
-    };
-
-    const handleDelete = async (id) => {
-        await firestore.doc(`${collections.TWEETS}/${id}`).delete();
-        const nuevosTweets = tweets.filter((tweet) => tweet.id !== id);
-        setTweets(nuevosTweets);
     };
 
     useEffect(() => {
@@ -48,7 +39,7 @@ export default function Feed({ user }) {
                     id: doc.id,
                     likes: doc.data().likes,
                     uid: doc.data().uid,
-                    autor: doc.data().autor,
+                    author: doc.data().author,
                     profilePic: doc.data().profilePic,
                 };
             });
@@ -58,11 +49,6 @@ export default function Feed({ user }) {
         return () => desuscribir();
     }, []);
 
-    const handleLike = (id, likes) => {
-        if (!likes) likes = 0;
-        firestore.doc(`${collections.TWEETS}/${id}`).update({ likes: likes + 1 });
-    };
-
     if (!user) {
         return <Navigate replace to="/login" />;
     }
@@ -70,16 +56,17 @@ export default function Feed({ user }) {
     return (
         <div className={styles.feedContainer}>
             <header className={styles.headerFeed}>
-                <img className={styles.profilepic} src={user.photoURL} alt="" />
+                <NavLink to="/users/me">
+                    <img className={styles.profilepic} src={user.photoURL} alt="" />
+                </NavLink>
                 <img className={styles.logopic} src="./img/logo.svg" alt="logo devs united" />
                 <img className={styles.titlepic} src="./img/title.svg" alt="title devs united" />
-                <span onClick={logout}>logout</span>
             </header>
             <div className={styles.formulario}>
                 <div className={styles.formularioBox}>
                     <img className={styles.profilepic2} src={user.photoURL} alt="" />
                     <textarea
-                        maxlength="200"
+                        maxLength="200"
                         placeholder={`What's happening ${user.displayName}?`}
                         name=""
                         id=""
@@ -94,20 +81,12 @@ export default function Feed({ user }) {
                     <span className={styles.spanMax}>200 max.</span>
                 </div>
                 <div onClick={sendTweet} className={styles.post}>
-                    <img src="./img/POST.png" alt="post button" />
+                    <img src="/img/POST.png" alt="post button" />
                 </div>
             </div>
             <div className={styles.containerTweet}>
                 {tweets.map((tweet, idx) => {
-                    return (
-                        <Tweet
-                            key={idx}
-                            user={user}
-                            tweet={tweet}
-                            onDelete={handleDelete}
-                            handleLike={handleLike}
-                        />
-                    );
+                    return <Tweet key={idx} user={user} tweet={tweet} />;
                 })}
             </div>
         </div>
