@@ -1,0 +1,94 @@
+/*TWEETS*/
+.tweet {
+    display: flex;
+    margin: 25px auto;
+    width: 100%;
+}
+
+.profilepic3 {
+    width: 63px;
+    height: 63px;
+    border-radius: 60px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.containerInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    margin-bottom: 5px;
+}
+
+.containerInfo .usernameBox {
+    font-family: 'Fira Code', monospace;
+    font-style: normal;
+    font-weight: 450;
+    font-size: 13px;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 10px;
+}
+
+.usernameBox span {
+    text-transform: uppercase;
+    margin-right: 8px;
+    background-color: yellow;
+    padding: 2px 10px;
+    color: black;
+    text-align: center;
+    border-radius: 0px 0px 0px 5px;
+    align-self: center;
+}
+
+.trash {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.tweetBox {
+    flex:1;
+}
+
+.tweetBox p {
+    max-width: 555px;
+    text-align: left;
+    font-family: 'Fira Code', monospace;
+    font-style: normal;
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 24px;
+    color: white;
+}
+
+.like {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.like img {
+    width: 24px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.like span {
+    font-family: 'Fira Code', monospace;
+    font-style: normal;
+    font-weight: 450;
+    font-size: 14px;
+    line-height: 24px;
+    color: #F50D5A;
+    margin-left:5px;
+}
+
+
+hr {
+    border: .5px solid #60265B;;
+    max-width: 660px;
+    margin: auto;
+}
