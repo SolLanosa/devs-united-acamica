@@ -1,0 +1,110 @@
+/*HEADER*/
+.headerMyProfile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1000px;
+    height: 42px;
+}
+
+.containerMyProfile {
+    display: flex;
+}
+
+.containerMyProfile img {
+    margin-right: 15px;
+}
+
+.backPic {
+    margin-left: 200px;
+}
+
+.logoutBox {
+    background-color:#F50D5A;
+    width: 116px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 170px;
+}
+
+.logoutBox img {
+    background-color:#F50D5A;
+}
+
+/*PROFILE INFO*/
+.myProfileInfo {
+    background-color: #150714;
+    height: 270px;
+    border-bottom: 2px solid #914D8B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profilepic {
+    width: 134px;
+    height: 134px;
+    border-radius: 80px;
+    border: 2px solid yellow;
+    margin-top: 20px;
+}
+
+.user {
+    width: 180px;
+    margin-top: 10px;
+}
+
+.myProfileInfo div .user {
+    background-color: yellow;
+    padding: 3px 3px;
+    border-radius: 0px 0px 0px 5px;   
+    margin-bottom: 20px;
+}
+
+.containerUser {
+    background-color: #150714;
+}
+
+.containerPostsFavs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    background-color: #150714;
+    width: 655px;
+    height: 40px;
+    position: relative;
+    top: 7px;
+}
+
+.post {
+    width: 50%;
+    background-color: #60265B;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.post img {
+    background-color: #60265B;
+}
+
+.favs {
+    width: 50%;
+    background-color: #150714;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.favs img {
+    background-color: #150714;
+}

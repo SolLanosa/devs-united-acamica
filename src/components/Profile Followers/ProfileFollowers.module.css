@@ -1,0 +1,47 @@
+/*HEADER*/
+.headerProfile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 1000px;
+    height: 42px;
+}
+
+.headerProfile img {
+    margin-right: 15px;
+}
+
+.backPic {
+    margin-left: 200px;
+}
+
+/*PROFILE INFO*/
+.ProfileInfo {
+    background-color: black;
+    height: 500px;
+    border-bottom: 1px solid #914D8B;
+}
+
+.profilepic {
+    width: 134px;
+    height: 134px;
+    border-radius: 80px;
+    border: 2px solid yellow;
+    margin-top: 10px;
+}
+
+.user {
+    width: 180px;
+    margin-top: 10px;
+}
+
+.ProfileInfo div .user {
+    background-color: yellow;
+    padding: 3px 3px;
+    border-radius: 0px 0px 0px 5px;   
+}
+
+.containerUser {
+    background-color: black;
+}
