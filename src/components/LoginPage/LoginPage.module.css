@@ -1,0 +1,151 @@
+* {
+    background-color: #2e132c;
+}
+
+/*LOGIN DESKTOP*/
+.containerLogin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*Left side*/
+.imageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageBox .logo {
+    width: 280px;
+    height: 210px;
+    margin-bottom: 35px;
+}
+
+.imageBox .title {
+    width: 390px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+/*Right side*/
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: 550px;
+}
+
+.login {
+    padding-bottom: 120px;
+}
+
+.login img {
+    height: 70px;
+    align-self: left;
+    padding-bottom: 40px;
+    margin-top: 64px;
+}
+
+.login .intro {
+    font-family: "Fira Code", monospace;
+    color: white;
+    max-width: 350px;
+    text-align: left;
+}
+
+/*Button Login con Google*/
+.buttonBox {
+    position: relative;
+    bottom: 59px;
+}
+
+.boxGoogle {
+    position: absolute;
+    background-color: white;
+    border-radius: 5px 0px 0px 5px;
+    height: 48px;
+    width: 44px;
+}
+
+.buttonBox img {
+    width: 20px;
+    height: 20px;
+    bottom: 20px;
+    position: absolute;
+    z-index: 1;
+    top: 14px;
+    left: 12px;
+    background: white;
+}
+
+.loginBox button {
+    background-color: #4285f4;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    width: 317px;
+    height: 48px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 28px;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.copyright {
+    color: #60265b;
+    text-align: center;
+    width: 367px;
+    position: absolute;
+    bottom: 50px;
+}
+
+.copyright span {
+    color: #c74362;
+}
+
+/*LOGIN MOBILE*/
+@media (max-width: 450px) {
+    .containerLogin {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imageBox .logo {
+        width: 180px;
+        height: 120px;
+    }
+
+    .imageBox .title {
+        width: 290px;
+        height: 25px;
+    }
+
+    .login img {
+        height: 50px;
+        margin-top: -20px;
+    }
+
+    .login .intro {
+        width: 300px;
+        margin-left: 33px;
+    }
+
+    .boxGoogle {
+        left: 35px;
+    }
+
+    .buttonBox img {
+        left: 45px;
+    }
+
+    .loginBox button {
+        width: 250px;
+        margin-left: 45px;
+    }
+}
