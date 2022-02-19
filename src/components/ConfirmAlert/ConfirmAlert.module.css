@@ -1,0 +1,44 @@
+.box {
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+    margin: auto;
+    border-radius: 5px;
+    height: 150px;
+    font-family: "Fira Code", monospace;
+    font-weight: bold;
+}
+
+.box p {
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+}
+
+.buttonContainer button {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100px;
+    font-family: "Fira Code", monospace;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid black;
+}
+
+.buttonContainer button:hover {
+    filter: brightness(1.4);
+}
+
+.confirm {
+    background-color: #60265b;
+    margin-left: 50px;
+    color: white;
+}
