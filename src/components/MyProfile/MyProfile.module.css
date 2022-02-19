@@ -11,10 +11,21 @@
 
 .containerMyProfile {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .containerMyProfile img {
     margin-right: 15px;
+}
+
+.containerMyProfile div {
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+    text-align: center;
+    color: white;
 }
 
 .logoutBox {
@@ -24,6 +35,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.logoutBox span {
+    background-color: #f50d5a;
+    margin-right: 10px;
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 2px;
 }
 
 .logoutBox img {
@@ -44,10 +66,9 @@
 }
 
 .profilepic {
-    width: 134px;
-    height: 134px;
+    width: 124px;
+    height: 124px;
     border-radius: 80px;
-    border: 2px solid yellow;
     margin-top: 20px;
 }
 
@@ -57,12 +78,13 @@
 }
 
 .myProfileInfo .containerUser {
-    background-color: yellow;
     padding: 3px 3px;
     border-radius: 0px 0px 0px 5px;
     margin-bottom: 20px;
     margin-top: 15px;
     font-family: Silkscreen;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .myProfileInfoContent {
@@ -94,6 +116,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    color: #150714;
 }
 
 .unselected {
@@ -105,4 +128,69 @@
     align-items: center;
     cursor: pointer;
     color: #60265b;
+}
+
+.favsName {
+    display: none;
+}
+
+/*RESPONSIVE MOBILE*/
+@media (min-width: 501px) and (max-width: 900px) {
+    .headerMyProfile {
+        height: 32px;
+    }
+
+    .containerMyProfile img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+
+    .containerMyProfile div {
+        font-size: 20px;
+        line-height: 20px;
+    }
+
+    .containerPostsFavs {
+        width: 495px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 500px) {
+    .headerMyProfile {
+        height: 32px;
+    }
+
+    .containerMyProfile img {
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+    }
+
+    .containerMyProfile div {
+        font-size: 17px;
+        line-height: 17px;
+    }
+    .containerPostsFavs {
+        width: 245px;
+        height: 40px;
+    }
+
+    .containerPostsFavs div {
+        font-size: 18px;
+    }
+
+    .favoritesName {
+        display: none;
+    }
+
+    .favsName {
+        display: block;
+    }
+
+    .profilepic {
+        width: 104px;
+        height: 104px;
+    }
 }

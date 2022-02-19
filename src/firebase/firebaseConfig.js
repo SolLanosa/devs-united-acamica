@@ -4,10 +4,10 @@ export const firebaseConfig = {
     projectId: "acamica-intro-clase",
     storageBucket: "acamica-intro-clase.appspot.com",
     messagingSenderId: "871654415002",
-    appId: "1:871654415002:web:62daafc69fb2f182aedd23"
-  };
-   
-  export const collections = {
-    TWEETS: "tweets"
-  }
-  
+    appId: "1:871654415002:web:62daafc69fb2f182aedd23",
+};
+
+export const collections = {
+    TWEETS: "tweets",
+    USERS: "users",
+};

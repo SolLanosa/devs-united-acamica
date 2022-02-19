@@ -1,5 +1,6 @@
 import React from "react";
+import styles from "./WithPadding.module.css";
 
 export default function WithPadding({ children }) {
-    return <div className="withPadding">{children}</div>;
+    return <div className={styles.withPadding}>{children}</div>;
 }

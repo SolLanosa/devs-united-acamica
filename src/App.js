@@ -5,25 +5,53 @@ import Feed from "./components/Feed/Feed";
 import ProfileFollowers from "./components/Profile Followers/ProfileFollowers";
 import MyProfile from "./components/MyProfile/MyProfile";
 import WithPadding from "./components/WithPadding/WithPadding";
-import { auth, loginConGoogle } from "./firebase";
+import { auth, firestore, loginConGoogle, logout } from "./firebase";
 import { Route, Routes, Navigate } from "react-router-dom";
+import UserSettings from "./components/UserSettings/UserSettings";
+import { collections } from "./firebase/firebaseConfig";
 
 function App() {
     const [user, setUser] = useState(null);
+    const onLogout = async () => {
+        console.log("hola");
+        await logout();
+        setUser(null);
+    };
+    const getUserAndUpsert = async (oneUser) => {
+        const doc = await firestore.collection(collections.USERS).doc(oneUser.uid).get();
+        if (doc.exists) {
+            setUser(doc.data());
+        } else {
+            const newUser = {
+                username: "",
+                color: "",
+                uid: oneUser.uid,
+                profilePicture: oneUser.photoURL,
+            };
+            firestore.collection(collections.USERS).doc(oneUser.uid).set(newUser);
 
+            setUser(newUser);
+        }
+    };
     const onLogin = async () => {
         const res = await loginConGoogle();
-        console.log(user);
-        setUser(res.user);
+        await getUserAndUpsert(res.user);
+    };
+
+    const updateUser = async (color, username) => {
+        const updatedUser = { ...user, color, username };
+        await firestore.collection(collections.USERS).doc(user.uid).set(updatedUser);
+        setUser(updatedUser);
     };
 
     useEffect(() => {
         auth.onAuthStateChanged((user) => {
-            setUser(user);
+            if (user) {
+                getUserAndUpsert(user);
+            }
         });
     }, []);
 
-    console.log("rendering");
     return (
         <div className="App">
             <Routes>
@@ -37,13 +65,34 @@ function App() {
                 />
                 <Route path="/login" element={<LoginPage onLogin={onLogin} user={user} />} />
                 <Route
-                    path="/users/me"
+                    path="/users/settings"
+                    element={<UserSettings user={user} updateUser={updateUser} />}
+                />
+                <Route
+                    path="/users/me/favorites"
                     element={
                         <WithPadding>
-                            <MyProfile user={user} />
+                            <MyProfile user={user} onLogout={onLogout} />
                         </WithPadding>
                     }
                 />
+                <Route
+                    path="/users/me/posts"
+                    element={
+                        <WithPadding>
+                            <MyProfile user={user} isPost onLogout={onLogout} />
+                        </WithPadding>
+                    }
+                />
+                <Route
+                    path="/users/:uid"
+                    element={
+                        <WithPadding>
+                            <ProfileFollowers user={user} />
+                        </WithPadding>
+                    }
+                />
+                <Route path="/users/me/*" element={<Navigate replace to="/users/me/posts" />} />
                 <Route path="/*" element={<Navigate replace to="/" />} />
             </Routes>
         </div>

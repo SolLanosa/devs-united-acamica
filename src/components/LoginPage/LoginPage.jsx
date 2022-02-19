@@ -4,8 +4,11 @@ import { Navigate } from "react-router-dom";
 import styles from "./LoginPage.module.css";
 
 export default function LoginPage({ onLogin, user }) {
-    if (user) {
+    if (user && user.color && user.username) {
         return <Navigate replace to="/" />;
+    }
+    if (user) {
+        return <Navigate replace to="/users/settings" />;
     }
 
     return (

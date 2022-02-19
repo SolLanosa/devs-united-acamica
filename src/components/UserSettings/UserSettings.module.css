@@ -1,0 +1,171 @@
+/*LOGIN DESKTOP*/
+.containerSettings {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*Left side*/
+.imageBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.imageBox .logo {
+    width: 280px;
+    height: 210px;
+    margin-bottom: 35px;
+}
+
+.imageBox .title {
+    width: 390px;
+    height: 45px;
+    margin-bottom: 20px;
+}
+
+/*Right side*/
+.settingsBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.nameBox {
+    max-width: 600px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.nameBox h2 {
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    color: white;
+    max-width: 600px;
+}
+
+.nameBox span {
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    color: #f50d5a;
+    max-width: 200px;
+}
+
+.settingsBox input {
+    width: 425px;
+    height: 60px;
+    background-color: black;
+    outline: none;
+    border: none;
+    color: #60265b;
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+.settingsBox input::placeholder {
+    color: #60265b;
+    font-family: "Fira Code", monospace;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+}
+
+.colorBox p {
+    font-family: "Fira Code", monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: white;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.settingsBox button {
+    width: 425px;
+    height: 50px;
+    background-color: #00da76;
+    color: white;
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+/*colors*/
+.colorContainer {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.colorContainer div {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin: 0 6px 0 0;
+}
+
+.selected {
+    border: 5px solid white;
+}
+
+/*copyright*/
+.copyright {
+    color: #60265b;
+    text-align: center;
+    width: 367px;
+    margin-top: 50px;
+}
+
+.copyright span {
+    color: #c74362;
+}
+
+/*RESPONSIVE*/
+@media (min-width: 651px) and (max-width: 900px) {
+    .imageBox .logo {
+        width: 240px;
+        height: 190px;
+        margin-bottom: 35px;
+    }
+
+    .imageBox .title {
+        width: 290px;
+        height: 35px;
+        margin-bottom: 20px;
+    }
+
+    .copyright {
+        width: 317px;
+    }
+}
+
+/*LOGIN MOBILE*/
+@media (max-width: 650px) {
+    .containerSettings {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .imageBox .logo {
+        width: 180px;
+        height: 120px;
+        margin-top: 20px;
+    }
+
+    .imageBox .title {
+        width: 290px;
+        height: 25px;
+    }
+}

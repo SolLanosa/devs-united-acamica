@@ -13,7 +13,6 @@
     width: 43px;
     height: 43px;
     border-radius: 60px;
-    border: 2px solid yellow;
     cursor: pointer;
 }
 
@@ -22,17 +21,17 @@
     height: 43px;
 }
 
-.headerFeed  .titlepic {
+.headerFeed .titlepic {
     width: 163px;
     height: 43px;
 }
 
 /*TEXT AREA*/
-.formulario {
-    background-color: black;
+.formularioContainer {
+    background-color: #150714;
     height: 200px;
     width: 100%;
-    border-bottom: 1px solid #914D8B;
+    border-bottom: 1px solid #914d8b;
     margin: 0 -25vw;
     padding: 0 25vw;
     display: flex;
@@ -40,14 +39,14 @@
     padding-bottom: 20px;
 }
 
-.formularioBox {
+.formulario {
     display: flex;
-    background-color: black;
+    background-color: #150714;
     margin: auto;
     width: 100%;
 }
 
-.formularioBox .profilepic2 {
+.formulario .profilepic2 {
     width: 63px;
     height: 63px;
     border-radius: 60px;
@@ -57,42 +56,42 @@
 }
 
 textarea {
-    flex:1;
+    flex: 1;
     height: 113px;
     border: none;
     margin-top: 20px;
     outline: none;
-    font-family: 'Fira Code', monospace;
-    color: #914D8B;
+    font-family: "Fira Code", monospace;
+    color: #914d8b;
     padding-left: 5px;
     padding-top: 5px;
+    resize: none;
+    background-color: #2f112d;
 }
 
-textarea { resize: none; }
-
 textarea::placeholder {
-    font-family: 'Fira Code', monospace;
-    color: #914D8B;
+    font-family: "Fira Code", monospace;
+    color: #914d8b;
 }
 
 .spanBox {
     display: flex;
-    background-color: black;
+    background-color: #150714;
     width: 100%;
     justify-content: space-between;
-    margin-top: 3px;
+    margin-top: 10px;
 }
 
 .spanBox span {
-    background-color: black;
-    font-family: 'Fira Code', monospace;
+    background-color: #150714;
+    font-family: "Fira Code", monospace;
     font-weight: 450;
     font-size: 13px;
 }
 
 .spanMax {
-    color:#F50D5A;
-} 
+    color: #f50d5a;
+}
 
 .spanLenght {
     color: white;
@@ -101,19 +100,42 @@ textarea::placeholder {
 
 .post {
     width: 102px;
-    height:35px;
+    height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     align-self: flex-end;
     margin-top: 10px;
+    font-family: Silkscreen;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    color: #150714;
+    background-color: #2f112d;
 }
 
-
 /*TWEETS*/
-.containerTweet {
+.tweetContainer {
     max-width: 1000px;
     margin: auto;
     width: 100%;
+}
+
+/*MOBILE RESPONSIVE*/
+@media (max-width: 650px) {
+    .headerFeed .logopic {
+        width: 40px;
+        height: 46px;
+        margin-left: 100px;
+    }
+
+    .headerFeed .titlepic {
+        width: 133px;
+        height: 46px;
+    }
+    .formulario .profilepic2 {
+        width: 55px;
+        height: 55px;
+    }
 }

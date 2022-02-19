@@ -1,7 +1,3 @@
-* {
-    background-color: #2e132c;
-}
-
 /*LOGIN DESKTOP*/
 .containerLogin {
     display: flex;
@@ -43,7 +39,7 @@
     padding-bottom: 120px;
 }
 
-.login img {
+.loginBox .login img {
     height: 70px;
     align-self: left;
     padding-bottom: 40px;
@@ -61,6 +57,11 @@
 .buttonBox {
     position: relative;
     bottom: 59px;
+    cursor: pointer;
+}
+
+.buttonBox button {
+    cursor: pointer;
 }
 
 .boxGoogle {
@@ -86,7 +87,7 @@
     background-color: #4285f4;
     color: white;
     font-family: "Roboto", sans-serif;
-    width: 317px;
+    width: 367px;
     height: 48px;
     font-weight: 500;
     font-size: 15px;
@@ -109,8 +110,77 @@
     color: #c74362;
 }
 
+/*RESPONSIVE*/
+@media (min-width: 651px) and (max-width: 900px) {
+    .imageBox .logo {
+        width: 240px;
+        height: 190px;
+        margin-bottom: 35px;
+    }
+
+    .imageBox .title {
+        width: 290px;
+        height: 35px;
+        margin-bottom: 20px;
+    }
+
+    .loginBox .login img {
+        height: 60px;
+        align-self: left;
+        padding-bottom: 40px;
+        margin-top: 64px;
+    }
+
+    .login .intro {
+        font-family: "Fira Code", monospace;
+        color: white;
+        max-width: 350px;
+        text-align: left;
+    }
+
+    /*Button Login con Google*/
+    .buttonBox {
+        position: relative;
+        bottom: 59px;
+    }
+
+    .boxGoogle {
+        position: absolute;
+        background-color: white;
+        border-radius: 5px 0px 0px 5px;
+        height: 38px;
+        width: 44px;
+    }
+
+    .buttonBox img {
+        width: 17px;
+        height: 17px;
+        bottom: 20px;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        left: 12px;
+        background: white;
+    }
+
+    .login .intro {
+        max-width: 320px;
+    }
+
+    .loginBox button {
+        width: 280px;
+        height: 38px;
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .copyright {
+        width: 317px;
+    }
+}
+
 /*LOGIN MOBILE*/
-@media (max-width: 450px) {
+@media (max-width: 650px) {
     .containerLogin {
         display: flex;
         flex-direction: column;
@@ -119,6 +189,7 @@
     .imageBox .logo {
         width: 180px;
         height: 120px;
+        margin-top: 20px;
     }
 
     .imageBox .title {
@@ -129,6 +200,7 @@
     .login img {
         height: 50px;
         margin-top: -20px;
+        width: 260px;
     }
 
     .login .intro {
@@ -147,5 +219,12 @@
     .loginBox button {
         width: 250px;
         margin-left: 45px;
+        margin-bottom: 20px;
+    }
+
+    .loginBox .login img {
+        height: 70px;
+        align-self: left;
+        padding-bottom: 40px;
     }
 }

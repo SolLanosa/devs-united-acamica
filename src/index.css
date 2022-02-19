@@ -16,8 +16,43 @@ body {
         "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #2e132c;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+a {
+    text-decoration: none;
+}
+
+.red {
+    background-color: #f50d5a;
+    border: 2px solid #f50d5a;
+}
+
+.orange {
+    background-color: #ff865c;
+    border: 2px solid #ff865c;
+}
+
+.yellow {
+    background-color: #ffea5c;
+    border: 2px solid #ffea5c;
+}
+
+.green {
+    background-color: #00da76;
+    border: 2px solid #00da76;
+}
+
+.blue {
+    background-color: #0096ce;
+    border: 2px solid #0096ce;
+}
+
+.purple {
+    background-color: #800fff;
+    border: 2px solid #800fff;
 }

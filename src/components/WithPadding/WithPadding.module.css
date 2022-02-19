@@ -1,0 +1,15 @@
+.withPadding {
+    padding: 0 25%;
+}
+
+@media (min-width: 651px) and (max-width: 1000px) {
+    .withPadding {
+        padding: 0 5%;
+    }
+}
+
+@media (max-width: 650px) {
+    .withPadding {
+        padding: 0px 15px;
+    }
+}
