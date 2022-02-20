@@ -2,12 +2,19 @@ import React, { useState, useEffect } from "react";
 import { NavLink, Link, Navigate } from "react-router-dom";
 import { firestore, logout } from "../../firebase";
 import { collections } from "../../firebase/firebaseConfig";
+import Loading from "../Loading/Loading";
 import Tweet from "../Tweet/Tweet";
 import styles from "./MyProfile.module.css";
 
 export default function MyProfile({ user, isPost, onLogout }) {
     const [posts, setPosts] = useState([]);
     const [favs, setFavs] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [hasFetchedFavs, setHasFetchedFavs] = useState(false);
+    const [hasFetchedPosts, setHasFetchedPosts] = useState(false);
+    useEffect(() => {
+        setLoading(true);
+    }, [isPost]);
 
     useEffect(() => {
         let unsubscribePosts;
@@ -25,6 +32,8 @@ export default function MyProfile({ user, isPost, onLogout }) {
                         };
                     });
                     setPosts(posts);
+                    setLoading(false);
+                    setHasFetchedPosts(true);
                 });
             unsubscribeFavs = firestore
                 .collection(collections.TWEETS)
@@ -38,6 +47,8 @@ export default function MyProfile({ user, isPost, onLogout }) {
                         };
                     });
                     setFavs(favs);
+                    setLoading(false);
+                    setHasFetchedFavs(true);
                 });
             return () => {
                 if (unsubscribeFavs) {
@@ -58,7 +69,7 @@ export default function MyProfile({ user, isPost, onLogout }) {
     }
 
     const tweets = isPost ? posts : favs;
-
+    const isLoading = loading && ((isPost && !hasFetchedPosts) || (!isPost && !hasFetchedFavs));
     return (
         <div>
             <header className={styles.headerMyProfile}>
@@ -103,9 +114,11 @@ export default function MyProfile({ user, isPost, onLogout }) {
                     </NavLink>
                 </div>
             </div>
-            {tweets.map((tweet, idx) => {
-                return <Tweet key={idx} user={user} tweet={tweet} />;
-            })}
+            {!isLoading &&
+                tweets.map((tweet, idx) => {
+                    return <Tweet key={idx} user={user} tweet={tweet} />;
+                })}
+            {isLoading && <Loading />}
         </div>
     );
 }

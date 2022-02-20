@@ -4,6 +4,7 @@ import Tweet from "../Tweet/Tweet";
 import { firestore } from "../../firebase";
 import { collections } from "../../firebase/firebaseConfig";
 import { Navigate, NavLink } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default function Feed({ user }) {
     const EMPTY_TWEET = {
@@ -17,6 +18,7 @@ export default function Feed({ user }) {
 
     const [tweets, setTweets] = useState([]);
     const [tweet, setTweet] = useState(EMPTY_TWEET);
+    const [loading, setLoading] = useState(true);
 
     const handleTweetChange = (e) => {
         let nuevoTweet = {
@@ -47,6 +49,7 @@ export default function Feed({ user }) {
                     };
                 });
                 setTweets(tweets);
+                setLoading(false);
             });
 
         return () => desuscribir();
@@ -101,9 +104,11 @@ export default function Feed({ user }) {
                 </div>
             </div>
             <div className={styles.tweetContainer}>
-                {tweets.map((tweet, idx) => {
-                    return <Tweet key={idx} user={user} tweet={tweet} />;
-                })}
+                {!loading &&
+                    tweets.map((tweet, idx) => {
+                        return <Tweet key={idx} user={user} tweet={tweet} />;
+                    })}
+                {loading && <Loading />}
             </div>
         </div>
     );

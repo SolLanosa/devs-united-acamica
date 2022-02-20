@@ -4,12 +4,15 @@ import Tweet from "../Tweet/Tweet";
 import { firestore } from "../../firebase";
 import { collections } from "../../firebase/firebaseConfig";
 import { Link, Navigate, useParams } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 export default function ProfileFollowers({ user }) {
     const { uid } = useParams();
     const [userProfile, setUserProfile] = useState();
     const [redirect, setRedirect] = useState(false);
     const [posts, setPosts] = useState([]);
+    const [loadingUser, setLoadingUser] = useState(true);
+    const [loadingPosts, setLoadingPosts] = useState(true);
 
     useEffect(() => {
         firestore
@@ -22,23 +25,42 @@ export default function ProfileFollowers({ user }) {
                 } else {
                     setRedirect(true);
                 }
-            });
+                setLoadingUser(false);
+            })
+            .catch((error) => setRedirect(true));
         const unsuscribe = firestore
             .collection(collections.TWEETS)
             .where("uid", "==", uid)
             .onSnapshot((snapshot) => {
                 const posts = snapshot.docs.map((doc) => {
                     return {
+                        id: doc.id,
                         ...doc.data(),
                     };
                 });
                 setPosts(posts);
+                setLoadingPosts(false);
             });
         return () => unsuscribe();
     }, []);
+
     if (redirect) {
         return <Navigate replace to="/" />;
     }
+    if (!user) {
+        return <Navigate replace to="/login" />;
+    }
+    if (!user.color || !user.username) {
+        return <Navigate replace to="/users/settings" />;
+    }
+    if (loadingUser) {
+        return (
+            <div className="loading-container">
+                <Loading />
+            </div>
+        );
+    }
+
     return (
         <div>
             <header className={styles.headerProfile}>
@@ -57,9 +79,11 @@ export default function ProfileFollowers({ user }) {
                     {userProfile?.username}
                 </div>
             </div>
-            {posts.map((tweet, idx) => {
-                return <Tweet key={idx} user={user} tweet={tweet} />;
-            })}
+            {!loadingPosts &&
+                posts.map((tweet, idx) => {
+                    return <Tweet key={idx} user={user} tweet={tweet} />;
+                })}
+            {loadingPosts && <Loading />}
         </div>
     );
 }

@@ -11,6 +11,7 @@ import UserSettings from "./components/UserSettings/UserSettings";
 import { collections } from "./firebase/firebaseConfig";
 
 function App() {
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
     const onLogout = async () => {
         console.log("hola");
@@ -35,7 +36,9 @@ function App() {
     };
     const onLogin = async () => {
         const res = await loginConGoogle();
+        setLoading(true);
         await getUserAndUpsert(res.user);
+        setLoading(false);
     };
 
     const updateUser = async (color, username) => {
@@ -45,9 +48,15 @@ function App() {
     };
 
     useEffect(() => {
+        setLoading(true);
         auth.onAuthStateChanged((user) => {
             if (user) {
-                getUserAndUpsert(user);
+                getUserAndUpsert(user)
+                    .then(() => {})
+                    .catch(() => {})
+                    .finally(() => setLoading(false));
+            } else {
+                setLoading(false);
             }
         });
     }, []);
@@ -63,7 +72,10 @@ function App() {
                         </WithPadding>
                     }
                 />
-                <Route path="/login" element={<LoginPage onLogin={onLogin} user={user} />} />
+                <Route
+                    path="/login"
+                    element={<LoginPage onLogin={onLogin} user={user} loading={loading} />}
+                />
                 <Route
                     path="/users/settings"
                     element={<UserSettings user={user} updateUser={updateUser} />}

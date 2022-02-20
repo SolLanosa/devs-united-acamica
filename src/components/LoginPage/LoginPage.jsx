@@ -1,14 +1,22 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 import styles from "./LoginPage.module.css";
 
-export default function LoginPage({ onLogin, user }) {
-    if (user && user.color && user.username) {
+export default function LoginPage({ onLogin, user, loading }) {
+    if (user && user.color && user.username && !loading) {
         return <Navigate replace to="/" />;
     }
-    if (user) {
+    if (user && !loading) {
         return <Navigate replace to="/users/settings" />;
+    }
+    if (loading) {
+        return (
+            <div className="loading-container">
+                <Loading />
+            </div>
+        );
     }
 
     return (
