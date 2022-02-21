@@ -33,11 +33,14 @@ function App() {
             setUser(newUser);
         }
     };
+
     const onLogin = async () => {
-        const res = await loginConGoogle();
-        setLoading(true);
-        await getUserAndUpsert(res.user);
-        setLoading(false);
+        try {
+            const res = await loginConGoogle();
+            setLoading(true);
+            await getUserAndUpsert(res.user);
+            setLoading(false);
+        } catch (error) {}
     };
 
     const updateUser = async (color, username) => {
