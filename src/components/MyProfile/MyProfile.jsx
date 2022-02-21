@@ -82,7 +82,7 @@ export default function MyProfile({ user, isPost, onLogout }) {
 
                 <div className={styles.logoutBox} onClick={onLogout}>
                     <span>LOGOUT</span>
-                    <img src="/img/logout-logo.svg" alt="" />
+                    <img src="/img/logout-logo.svg" alt="logout icon" />
                 </div>
             </header>
             <div className={styles.myProfileInfo}>
@@ -90,7 +90,7 @@ export default function MyProfile({ user, isPost, onLogout }) {
                     <img
                         className={styles.profilepic + " " + user.color}
                         src={user.profilePicture}
-                        alt=""
+                        alt="profile picture"
                     />
                     <div className={styles.containerUser + " " + user.color}>{user.username}</div>
                 </div>

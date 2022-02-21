@@ -14,7 +14,6 @@ function App() {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
     const onLogout = async () => {
-        console.log("hola");
         await logout();
         setUser(null);
     };

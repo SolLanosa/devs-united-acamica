@@ -65,7 +65,7 @@ export default function ProfileFollowers({ user }) {
         <div>
             <header className={styles.headerProfile}>
                 <Link to="/">
-                    <img className={styles.backPic} src="/img/back.svg" alt="" />
+                    <img className={styles.backPic} src="/img/back.svg" alt="arrow icon" />
                     <span>{userProfile?.username}</span>
                 </Link>
             </header>
@@ -73,7 +73,7 @@ export default function ProfileFollowers({ user }) {
                 <img
                     className={styles.profilepic + " " + userProfile?.color}
                     src={userProfile?.profilePicture}
-                    alt=""
+                    alt="profile picture"
                 />
                 <div className={styles.containerUser + " " + userProfile?.color}>
                     {userProfile?.username}

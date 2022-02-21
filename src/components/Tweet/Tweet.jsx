@@ -27,7 +27,7 @@ export default function Tweet({ tweet, user }) {
     const onDelete = () => firestore.doc(`${collections.TWEETS}/${tweet.id}`).delete();
 
     const onCloseModal = () => setOpen(false);
-    console.log(tweet);
+
     return (
         <div className={styles.tweet}>
             <ConfirmAlert
