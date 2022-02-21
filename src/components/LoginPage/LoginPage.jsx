@@ -1,7 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
-
 import styles from "./LoginPage.module.css";
 
 export default function LoginPage({ onLogin, user, loading }) {

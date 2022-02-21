@@ -38,6 +38,7 @@
     max-width: 600px;
     text-align: left;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .nameBox h2 {
@@ -46,7 +47,9 @@
     font-size: 50px;
     line-height: 50px;
     color: white;
-    max-width: 600px;
+    max-width: 425px;
+    width: 100%;
+    word-break: break-word;
 }
 
 .nameBox span {
@@ -55,11 +58,14 @@
     font-size: 50px;
     line-height: 50px;
     color: #f50d5a;
-    max-width: 200px;
+    max-width: 425px;
+    width: 100%;
+    word-break: break-word;
 }
 
 .settingsBox input {
-    width: 425px;
+    width: 90%;
+    max-width: 425px;
     height: 60px;
     background-color: black;
     outline: none;
@@ -92,7 +98,7 @@
 }
 
 .settingsBox button {
-    width: 425px;
+    max-width: 425px;
     height: 50px;
     background-color: #00da76;
     color: white;
@@ -100,12 +106,17 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 24px;
+    width: 92%;
 }
 
 /*colors*/
 .colorContainer {
     display: flex;
     margin-bottom: 20px;
+}
+
+.colorBox {
+    width: 100%;
 }
 
 .colorContainer div {
@@ -138,24 +149,66 @@
         width: 240px;
         height: 190px;
         margin-bottom: 35px;
+        max-width: 100%;
     }
 
     .imageBox .title {
         width: 290px;
         height: 35px;
         margin-bottom: 20px;
+        max-width: 100%;
     }
 
     .copyright {
         width: 317px;
+        max-width: 100%;
+    }
+
+    .nameBox {
+        max-width: 400px;
+    }
+
+    .nameBox h2 {
+        font-size: 45px;
+    }
+
+    .nameBox span {
+        font-size: 45px;
+    }
+
+    .settingsBox input {
+        width: 80%;
+    }
+
+    .colorContainer div {
+        height: 50px;
+        width: 50px;
+    }
+
+    .settingsBox button {
+        width: 330px;
     }
 }
 
 /*LOGIN MOBILE*/
 @media (max-width: 650px) {
+    .logo {
+        padding-top: 30px;
+    }
+
     .containerSettings {
         display: flex;
         flex-direction: column;
+    }
+
+    .settingsBox {
+        width: 90%;
+        margin: auto;
+    }
+
+    .settingsBox input {
+        padding-left: 10px;
+        width: 100%;
     }
 
     .imageBox .logo {
@@ -167,5 +220,26 @@
     .imageBox .title {
         width: 290px;
         height: 25px;
+    }
+
+    .nameBox {
+        word-break: normal;
+    }
+    .nameBox h2 {
+        text-align: center;
+        font-size: 40px;
+    }
+
+    .nameBox span {
+        font-size: 40px;
+    }
+
+    .colorContainer div {
+        height: 50px;
+        width: 50px;
+    }
+
+    .settingsBox button {
+        width: 100%;
     }
 }

@@ -24,8 +24,9 @@ export default function UserSettings({ user, updateUser }) {
             </div>
             <div className={styles.settingsBox}>
                 <div className={styles.nameBox}>
-                    <h2>WELCOME</h2>
-                    <span>{name || "name"}!</span>
+                    <h2>
+                        WELCOME <span>{name || "name"}!</span>
+                    </h2>
                 </div>
                 <input
                     placeholder="Type your username"

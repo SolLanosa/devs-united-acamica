@@ -7,6 +7,7 @@
     max-width: 1000px;
     height: 42px;
 }
+
 .headerProfile a {
     display: flex;
     justify-content: flex-start;
@@ -64,4 +65,9 @@
     background-color: yellow;
     padding: 3px 3px;
     border-radius: 0px 0px 0px 5px;
+}
+@media (max-width: 500px) {
+    .headerProfile span {
+        font-size: 20px;
+    }
 }

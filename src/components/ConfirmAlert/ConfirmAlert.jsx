@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ConfirmAlert.module.css";
 import Modal from "../Modal/Modal";
+
 export default function ConfirmAlert({
     open,
     onClose,
